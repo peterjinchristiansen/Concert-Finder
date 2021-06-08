@@ -38,6 +38,7 @@
 .box-2 {
     border: 1px solid black;
     /* width: 50%; */
+    padding: 10px;
 }
 
 .search-bar {
@@ -45,12 +46,7 @@
 }
 
 .youtube, .info {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* padding-left: 10%; */
     /* height: 200%; */
-}
-.info span {
-    display: flex;
-    flex-direction: row;
-
 }
