@@ -15,6 +15,7 @@ $('#find').on('click', function(event) {
     .then(data => data.json())
     .then(result => {
 
+        // For some reason its only creating one card, not 4
         for(i=0; i < 5; i++) {
 
             var box = $('#event')
@@ -33,7 +34,7 @@ $('#find').on('click', function(event) {
            card.appendChild(thumbNail)
 
            var cardBody = document.createElement('div')
-           cardBody.setAttribute('class', 'card-body')
+           cardBody.setAttribute('class', 'info-body')
 
             // Artist Name
             var name = document.createElement('h5')
@@ -91,11 +92,10 @@ $('#find').on('click', function(event) {
         result.items.forEach(item => {
             video = 
             `
-            <iframe width="480" height="275" src="http://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="480" height="375" src="http://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>
             `
             $('#player').append(video);
         })
     })
-
 
 })
