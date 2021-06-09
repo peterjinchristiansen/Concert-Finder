@@ -5,7 +5,9 @@
     background-color: black;
     color: white;
 }
-
+.h1{
+    color: white;
+}
 .nav-bar {
     background-color: #333;
     overflow: hidden;
@@ -28,6 +30,9 @@
     background: url(images/festival\ pic\ for\ project\ 1.jpeg) center / cover;
     height: 50%;
     width: 100%;
+}
+.form-label{
+
 }
 .box-holder {
     padding-top: 10px;
