@@ -16,12 +16,12 @@ $('#find').on('click', function(event) {
     .then(result => {
 
         // For some reason its only creating one card, not 4
-        for(i=0; i < 5; i++) {
+        for(i=0; i < 4; i++) {
 
             var box = $('#event')
             var card = document.createElement('div')
             card.setAttribute('class', 'card')
-            card.setAttribute('style', 'width: 18rem')
+            card.setAttribute('style', 'width: 15rem')
             
 
             //  ThumbNail
@@ -39,7 +39,7 @@ $('#find').on('click', function(event) {
             // Artist Name
             var name = document.createElement('h5')
             name.setAttribute('class', 'card-title')
-            var nameEl = result[i].artist.name
+            var nameEl = result[0].artist.name
             name.textContent = `${nameEl}`
             console.log(name);
             cardBody.appendChild(name);
