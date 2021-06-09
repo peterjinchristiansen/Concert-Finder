@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: black;
+    color: white;
 }
 
 .nav-bar {
@@ -22,7 +24,11 @@
     background-color: #ddd;
     color: black;
 }
-
+.card-body{
+    background: url(images/festival\ pic\ for\ project\ 1.jpeg) center / cover;
+    height: 50%;
+    width: 100%;
+}
 .box-holder {
     padding-top: 10px;
     /* display: flex;
