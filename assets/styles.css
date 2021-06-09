@@ -7,14 +7,12 @@
 }
 body{
     background-color: $black;
-    font-family:"Balsamiq Sans", cursive;
     color: var(--clr-neon);
     text-shadow: 0 0 0.125em hsl(0 0% 50% / 0.3), 0 0 0.35em currentColor;
     }
 
 
 .title{
-    font-family:"Balsamiq Sans", cursive;
     text-align: center;
     color: var(--clr-neon);
     text-shadow: 0 0 0.125em hsl(0, 0%, 100%/ 0.3), 0 0 0.45em currentColor;
