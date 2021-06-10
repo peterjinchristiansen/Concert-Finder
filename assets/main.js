@@ -10,6 +10,8 @@ var video = ''
 $('#find').on('click', function(event) {
     var search = $('#search').val()
     event.preventDefault()
+   
+
 
     // clears out the values of previous search
     $('#player').empty()
@@ -20,7 +22,7 @@ $('#find').on('click', function(event) {
     .then(result => {
 
         // For some reason its only creating one card, not 4
-        for(i=0; i < 4; i++) {
+        for(i=0; i < 2; i++) {
 
             var box = $('#event')
             var card = document.createElement('div')
@@ -102,4 +104,35 @@ $('#find').on('click', function(event) {
         })
     })
 
-})
+    // saving information to local storage
+
+    if(localStorage.getItem('pastSearchesArr')){
+        var getSavedSearch = JSON.parse(localStorage.getItem('pastSearchesArr'));
+        getSavedSearch.push(search)
+        localStorage.setItem('pastSearchesArr',JSON.stringify(getSavedSearch))
+        savedSearchListEl(getSavedSearch);
+
+    }else{
+        let searchesArr = []; 
+        searchesArr.push(search)
+        savedSearchListEl(searchesArr)
+         localStorage.setItem('pastSearchesArr', JSON.stringify(searchesArr));
+    }
+
+    })
+    // Function to display saved storage information
+    function savedSearchListEl(array) {
+        var recentSearch = $('#recent')
+        recentSearch.removeClass('hide');
+
+            let savedSearchEl = $('#search-items')
+
+            for (let i = 0; i < array.length; i++) {
+                const element = array [i];
+                
+                var searchedArtist = document.createElement('li')
+                searchedArtist.textContent = element
+                savedSearchEl.append(searchedArtist)
+            }
+        }
+        
