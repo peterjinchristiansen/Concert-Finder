@@ -108,9 +108,11 @@ $('#find').on('click', function(event) {
 
     if(localStorage.getItem('pastSearchesArr')){
         var getSavedSearch = JSON.parse(localStorage.getItem('pastSearchesArr'));
+        getSavedSearch = [];
         getSavedSearch.push(search)
         localStorage.setItem('pastSearchesArr',JSON.stringify(getSavedSearch))
         savedSearchListEl(getSavedSearch);
+        console.log(getSavedSearch);
 
     }else{
         let searchesArr = []; 
