@@ -10,13 +10,19 @@ var video = ''
 $('#find').on('click', function(event) {
     var search = $('#search').val()
     event.preventDefault()
-    
+   
+
+
+    // clears out the values of previous search
+    $('#player').empty()
+    $('#event').empty()
+
     fetch(BTapiUrl + search + BTapiKey)
     .then(data => data.json())
     .then(result => {
 
         // For some reason its only creating one card, not 4
-        for(i=0; i < 4; i++) {
+        for(i=0; i < 2; i++) {
 
             var box = $('#event')
             var card = document.createElement('div')
@@ -92,10 +98,43 @@ $('#find').on('click', function(event) {
         result.items.forEach(item => {
             video = 
             `
-            <iframe width="480" height="375" src="http://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="480" height="375" src="https://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>
             `
             $('#player').append(video);
         })
     })
 
-})
+    // saving information to local storage
+
+    if(localStorage.getItem('pastSearchesArr')){
+        var getSavedSearch = JSON.parse(localStorage.getItem('pastSearchesArr'));
+        getSavedSearch = [];
+        getSavedSearch.push(search)
+        localStorage.setItem('pastSearchesArr',JSON.stringify(getSavedSearch))
+        savedSearchListEl(getSavedSearch);
+        console.log(getSavedSearch);
+
+    }else{
+        let searchesArr = []; 
+        searchesArr.push(search)
+        savedSearchListEl(searchesArr)
+         localStorage.setItem('pastSearchesArr', JSON.stringify(searchesArr));
+    }
+
+    })
+    // Function to display saved storage information
+    function savedSearchListEl(array) {
+        var recentSearch = $('#recent')
+        recentSearch.removeClass('hide');
+
+            let savedSearchEl = $('#search-items')
+
+            for (let i = 0; i < array.length; i++) {
+                const element = array [i];
+                
+                var searchedArtist = document.createElement('li')
+                searchedArtist.textContent = element
+                savedSearchEl.append(searchedArtist)
+            }
+        }
+        
